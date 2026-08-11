@@ -7,6 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="bday.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // === EmailJS config: replace with your own IDs from emailjs.com ===
+  const EMAILJS_PUBLIC_KEY  = "S5lzwGDGe6jcpXDTQ";
+  const EMAILJS_SERVICE_ID  = "service_jkt3qdd";
+  const EMAILJS_TEMPLATE_ID = "template_q1664kk";
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+</script>
 </head>
 <body data-theme="light">
 
@@ -293,6 +301,7 @@
     </p>
 
     <textarea
+        id="secretWish"
         placeholder="Write your secret wish here... ✨">
     </textarea>
 
@@ -912,6 +921,16 @@ sendBtn.addEventListener("click", function(e){
 
     sendBtn.disabled = true;
     sendBtn.innerHTML = "✨ Sending Wishes...";
+
+    // Send the wishes to your inbox via EmailJS
+    const secretWishText = document.getElementById("secretWish").value.trim();
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        selected_wishes: selectedWishes.length ? selectedWishes.join(", ") : "None selected",
+        secret_wish: secretWishText ? secretWishText : "No secret wish written"
+    }).then(
+        () => console.log("Wishes emailed successfully"),
+        (err) => console.log("EmailJS error:", err)
+    );
 
     document.querySelectorAll(".wish-cloud.selected").forEach((cloud,index)=>{
         setTimeout(()=>{
