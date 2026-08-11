@@ -2524,6 +2524,12 @@ box-shadow:0 0 30px rgba(255,120,160,.7);
     overflow-x: hidden;
     box-sizing: border-box;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+
     /* Allow the complete content to be reached */
     display: block;
 
