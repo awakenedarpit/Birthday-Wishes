@@ -36,7 +36,7 @@ A tap-through birthday experience built with vanilla HTML, CSS and JS. Five stor
 
 ## Credit
 
-First draft generated with Claude AI, customized & crafted by Storymint Studio.
+Created With the Help of Claude AI And ChatGPT Customized & Crafted by Awakenedarpit
 
 ---
-Made by [@storymint.studio](https://instagram.com/storymint.studio)
+Made by [@Awakenedarpit](https://www.instagram.com/awakenedarpit?igsh=MWRpamlra3c5Ym1vcQ==)
