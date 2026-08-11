@@ -749,17 +749,31 @@ setTimeout(()=>sparkle.remove(),700);
     current = index;
     slides[current].classList.add('active');
     updateProgress();
-    tapHint.style.display = current===total-1 ? 'none' : 'flex';
+    tapHint.style.display =
+      (current===total-1 || (current===4 && typeof openedLetters !== 'undefined' && openedLetters.size < 6))
+        ? 'none'
+        : 'flex';
     if(current===3){ resetCandles(); }
     if(current===total-1 && !finaleFired){ fireConfetti(); finaleFired = true; }
   }
 
   function next(){
+
+    // LETTER SLIDE (slide index 4):
+    // Do NOT allow tapping, Space, or ArrowRight to advance
+    // until all six letters have been opened.
+    if(current === 4 && typeof openedLetters !== 'undefined' && openedLetters.size < 6){
+      return;
+    }
+
     if(current===3 && !candlesBlown){
       blowCandles();
       return;
     }
-    if(current < total-1){ goTo(current+1); }
+
+    if(current < total-1){
+      goTo(current+1);
+    }
   }
 
   function resetCandles(){
