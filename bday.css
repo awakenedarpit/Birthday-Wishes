@@ -2508,3 +2508,45 @@ box-shadow:0 0 30px rgba(255,120,160,.7);
     font-size: 18px !important;
     line-height: 1.7 !important;
 }
+
+
+
+/* ================================
+   LAST BIRTHDAY WISHES SLIDE
+   SCROLLABLE ON MOBILE & DESKTOP
+================================ */
+
+.slide:last-child {
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+    /* Allow the complete content to be reached */
+    display: block;
+
+    /* Smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Keep the content from touching the edges */
+.slide:last-child > * {
+    box-sizing: border-box;
+}
+
+/* Better scrollbar */
+.slide:last-child::-webkit-scrollbar {
+    width: 5px;
+}
+
+.slide:last-child::-webkit-scrollbar-thumb {
+    background: rgba(120, 90, 120, 0.35);
+    border-radius: 10px;
+}
+
+.slide:last-child::-webkit-scrollbar-track {
+    background: transparent;
+}
