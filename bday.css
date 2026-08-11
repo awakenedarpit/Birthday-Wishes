@@ -2494,10 +2494,17 @@ box-shadow:0 0 30px rgba(255,120,160,.7);
 
 
 /* ==========================================
-   LAST SLIDE — WISH TEXT SIZE
+   LAST SLIDE — ALL MESSAGE TEXT SAME SIZE
    ========================================== */
 
 .slide[data-index="5"] .quote {
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+}
+
+/* Keep THANK YOU heading itself at the same
+   size as the surrounding message text */
+.slide[data-index="5"] .quote h2 {
     font-size: 18px !important;
     line-height: 1.7 !important;
 }
