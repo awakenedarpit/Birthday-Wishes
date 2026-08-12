@@ -1568,21 +1568,30 @@ function updateLetters(){
 // Typewriter
 // ====================================
 
+let typeLetterTimer = null;
+
 function typeLetter(text, target){
+
+    if(typeLetterTimer){
+        clearInterval(typeLetterTimer);
+        typeLetterTimer = null;
+    }
 
     target.innerHTML = "";
 
+    const chars = Array.from(text); // splits by whole character, not UTF-16 unit, so emoji stay intact
+
     let i = 0;
 
-    const timer = setInterval(()=>{
+    typeLetterTimer = setInterval(()=>{
 
-        if(text.charAt(i) === "\n"){
+        if(chars[i] === "\n"){
 
             target.innerHTML += "<br>";
 
         }else{
 
-            target.innerHTML += text.charAt(i);
+            target.innerHTML += chars[i];
 
         }
 
@@ -1590,9 +1599,10 @@ function typeLetter(text, target){
 
         i++;
 
-        if(i >= text.length){
+        if(i >= chars.length){
 
-            clearInterval(timer);
+            clearInterval(typeLetterTimer);
+            typeLetterTimer = null;
 
         }
 
