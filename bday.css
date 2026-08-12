@@ -186,6 +186,20 @@ body{
 }
 .slide.active{opacity:1;visibility:visible;transform:translateY(0) scale(1) rotate(0deg);}
 
+/* ============ FINAL SLIDE: scrollable so the full letter can be read ============ */
+.slide[data-index="5"]{
+  justify-content:flex-start;
+  overflow-y:auto;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding-top:64px;
+  padding-bottom:48px;
+}
+.slide[data-index="5"]::-webkit-scrollbar{width:5px;}
+.slide[data-index="5"]::-webkit-scrollbar-track{background:transparent;}
+.slide[data-index="5"]::-webkit-scrollbar-thumb{background:var(--card-border);border-radius:10px;}
+
 .eyebrow{
   font-family:var(--serif);
   font-size:13px;letter-spacing:3px;text-transform:uppercase;
