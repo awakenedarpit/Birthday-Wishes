@@ -800,7 +800,10 @@ setTimeout(()=>sparkle.remove(),700);
         ? 'none'
         : 'flex';
     if(current===3){ resetCandles(); }
-    if(current===total-1 && !finaleFired){ fireConfetti(); finaleFired = true; }
+    if(current===total-1){
+      slides[current].scrollTop = 0;
+      if(!finaleFired){ fireConfetti(); finaleFired = true; }
+    }
   }
 
   function next(){
